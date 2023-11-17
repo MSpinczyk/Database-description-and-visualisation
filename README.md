@@ -18,11 +18,12 @@
 - **Use in Solution:** Graphviz is used to create a graphical representation of the database schema in the form of an Entity-Relationship Diagram (ERD). The `erd` tool, which is built on Graphviz, is used to generate the ERD.
 
 ## ERAAlchemy:
-
+# NO longer supported -> eralchemy2
 
 - **Description:** `erd` is an open-source tool that uses Graphviz to generate Entity-Relationship Diagrams (ERDs) from SQLAlchemy model code. It takes a Python file containing SQLAlchemy model definitions and produces a visual representation of the relationships between tables.
 
 - **Use in Solution:** `erd` is utilized to automatically generate an ERD from the SQLAlchemy models created by `sqlacodegen`. The resulting diagram provides a visual overview of the database schema.
+
 
 ## OpenAI API
 - **Use in Solution:** Textual descriptions of the database + general markdown structure
