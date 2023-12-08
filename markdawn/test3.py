@@ -55,9 +55,6 @@ with open('C:\\Users\\Lenovo\\Desktop\\5year\\3-database-description-visualisati
 print(found_blocks)
 
 
-
-
-
 ''' GENERATING MARKDoWN'''
 doc = Document()
 doc.add(Header(f"Database name: {database_name}"))
