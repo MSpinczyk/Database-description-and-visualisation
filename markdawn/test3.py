@@ -4,6 +4,7 @@ import re
 from sqlalchemy import create_engine, Column, Integer, String, Sequence, inspect
 from mdutils.mdutils import MdUtils
 import subprocess
+from eralchemy2 import render_er
 
 '''CONNECTING TO POSTGRES'''
 user = 'postgres'
@@ -54,6 +55,10 @@ with open('C:\\Users\\Lenovo\\Desktop\\5year\\3-database-description-visualisati
     found_blocks.append(pattern.findall(file_content))
 print(found_blocks)
 
+''' ERD GRAPH'''
+render_er(f"{db_url}", 'erd_graph.png')
+
+
 
 ''' GENERATING MARKDoWN'''
 doc = Document()
@@ -74,6 +79,10 @@ with HeaderSubLevel(doc):
             # Find the index of the first matching elem
             doc.add(Header(f"{i}"))
             doc.add(CodeBlock(found_blocks[0][index]))
+
+    with HeaderSubLevel(doc):
+        doc.add(Header("Erd Graph"))
+        doc.add(Image('erd_graph.png', alt_text='erd_graph'))
 
 with open(f"{database_name}-description.md", "w") as f:
     f.write(doc.write())
