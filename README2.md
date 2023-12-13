@@ -7,3 +7,7 @@
  ## 3. generating graph from database
     - graph.py
 
+##
+npm install -g @dbml/cli
+##
+npm install -g @softwaretechnik/dbml-renderer
