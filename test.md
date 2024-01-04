@@ -1,4 +1,12 @@
-```dbml
+---
+title: Title
+---
+
+### Some text
+
+some more text
+
+```{.kroki dia='dbml'}
 Table "Album" {
   "AlbumId" INT [not null]
   "Title" VARCHAR(160) [not null]
