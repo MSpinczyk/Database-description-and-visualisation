@@ -55,6 +55,7 @@ Replace `<user>`, `<password>`, `<host>`, `<port>`, `<database>`, and `<openai-k
 - `generation.py`: Python script for extracting database information, generating documentation, and converting it to PDF.
 - `Dockerfile`: Docker configuration for building the project as a Docker image.
 - `requirements.txt`: Python dependencies for the project.
+- `filter-kroki.lua`: embed diagram code and embed image links using the https://krokio.io webservice.
 
 ## Documentation
 The documentation includes the following sections:
