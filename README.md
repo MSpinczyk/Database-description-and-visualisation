@@ -1,29 +1,80 @@
-# Library revision/ideas
-## SQLAlchemy:
+## Project Overview
 
-- **Description:** SQLAlchemy is a SQL toolkit and Object-Relational Mapping (ORM) library for Python. It provides a set of high-level API for communicating with relational databases, allowing you to interact with databases using Python objects instead of raw SQL queries.
+This project provides a solution for creating comprehensive documentation for an existing, working database. The generated documentation includes both a graphical representation of the database and a text description of its tables. The text description aims to infer semantics using table and column names, considering additional information such as comments, constraints, and relationships.
 
-- **Use in Solution:** `sqlalchemy` is used to connect to the existing database, inspect its structure, and generate SQLAlchemy model code representing the database schema.
+The solution leverages third-party tools for visualization and an AI chatbot API for generating textual descriptions. Specifically, it utilizes DBML (Database Markup Language) for database visualization. The result of running the program on an existing database is a PDF file containing the database description and embedded graphics with diagrams.
 
-## sqlacodegen:
+## Features
 
-- **Description:** `sqlacodegen` is a tool that generates SQLAlchemy model code from an existing database. It examines the structure of a database and produces Python code that represents the tables and relationships.
+- Extracts database information, including table structures, indexes, and schemas.
+- Utilizes [OpenAI](https://www.openai.com/) to generate natural language descriptions for each table.
+- Visualizes the database schema using DBML and embeds it in the documentation.
+- Converts the documentation to a PDF file for easier sharing and distribution.
 
-- **Use in Solution:** `sqlacodegen` is employed to automatically generate SQLAlchemy models from an existing database, making it easier to work with the database structure in Python.
+## Dependencies
 
-## Graphviz + Kroki.io:
+- Python 3
+- [Pandoc](https://pandoc.org/) for converting Markdown to PDF
+- PostgreSQL
+- Node.js and npm for DBML generation
+- [DBML CLI](https://www.dbml.org/cli) for working with DBML files
 
-- **Description:** Graphviz is an open-source graph visualization software. It provides tools for creating and rendering graphs and diagrams. Graphviz supports various graph layout algorithms and produces output in multiple formats.
+## Installation and Usage
 
-- **Use in Solution:** Graphviz is used to create a graphical representation of the database schema in the form of an Entity-Relationship Diagram (ERD). The `erd` tool, which is built on Graphviz, is used to generate the ERD.
+### Prerequisites
 
-## ERAAlchemy:
-# NO longer supported -> eralchemy2
+Ensure you have the following installed:
 
-- **Description:** `erd` is an open-source tool that uses Graphviz to generate Entity-Relationship Diagrams (ERDs) from SQLAlchemy model code. It takes a Python file containing SQLAlchemy model definitions and produces a visual representation of the relationships between tables.
+- Docker
+- Docker Compose
 
-- **Use in Solution:** `erd` is utilized to automatically generate an ERD from the SQLAlchemy models created by `sqlacodegen`. The resulting diagram provides a visual overview of the database schema.
+### Instructions
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+
+2. Build the Docker image:
+
+    ```bash
+    docker build -t database-documentation-generator .
+
+3. Run the Docker container:
+
+    ```bash
+    docker run -v "$(pwd)":/output database-documentation-generator python3 /app/generation.py <user> <password> <host> <port> <database> <openai-key> 
+
+Replace `<user>`, `<password>`, `<host>`, `<port>`, `<database>`, and `<openai-key>` with your actual database credentials and OpenAI API key.
 
 
-## OpenAI API
-- **Use in Solution:** Textual descriptions of the database + general markdown structure
+4. The generated PDF will be saved in the current directory as `output.pdf`.
+
+## Project Structure
+- `generation.py`: Python script for extracting database information, generating documentation, and converting it to PDF.
+- `Dockerfile`: Docker configuration for building the project as a Docker image.
+- `requirements.txt`: Python dependencies for the project.
+
+## Documentation
+The documentation includes the following sections:
+
+- Database name and schemas
+- Indexes
+- Tables with descriptions and generated natural language descriptions using OpenAI
+- Visual representation of the database schema in DBML format
+
+### Example documentation
+
+The example documentation could be find in the repository. It is saved as `output.pdf`.
+
+## Contributions
+This project was developed by Jan Mrożek and Michał Spinczyk. Each team member contributed to different aspects of the project:
+| Team Member         | Contributions                                                      |
+|---------------------|-------------------------------------------------------------------|
+| Jan Mrożek          | - Getting SQL syntax from database                                  |
+|                     | - Getting DBML model from SQL                                      |
+| Michał Spinczyk      | - Generating database description                                  |
+|                     | - Generating PDF document with Pandoc                               |
+| Both                | - Creating Dockerfile                                              |
+|                     | - Writing README.md                                                |

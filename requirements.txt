@@ -1,0 +1,6 @@
+psycopg2==2.9.9
+mdutils==1.6.0
+SQLAlchemy==1.4.50
+sqlacodegen==2.3.0
+markdownmaker==0.4.0
+openai==1.8.0
