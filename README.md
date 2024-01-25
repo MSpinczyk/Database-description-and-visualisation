@@ -17,7 +17,7 @@ The solution leverages third-party tools for visualization and an AI chatbot API
 - **Docker**
 - **PostgreSQL** is a powerful open-source relational database management system (RDBMS). It is known for its extensibility and supports a wide range of data types. In this context, it's used for connecting to databases and obtaining dump files.
 - **Node.js** and **npm**: Node.js is a JavaScript runtime that allows developers to run JavaScript on the server side. npm (Node Package Manager) is the package manager for Node.js, facilitating the installation and management of JavaScript. Those packages allow us to use DBML CLI.
-- **[DBML CLI](https://www.dbml.org/cli)** for working with DBML files
+- **[DBML CLI](https://www.dbml.org/cli)** a package, which converts between different formats from the command line (DBML file to SQL or SQL file to DBML)
 - **sqlacodegen** is a Python tool that generates SQLAlchemy code from an existing database. It automates the process of creating SQLAlchemy models based on the structure of the database.
 - **[Pandoc](https://pandoc.org/)** and **[pandoc-filters](https://github.com/mittelmark/pandoc-filters)**: Pandoc is a document converter that supports various markup formats. Pandoc-filters are additional tools that can be used to extend Pandoc's functionality. They are utilized here for converting Markdown documents to PDF format.
 
